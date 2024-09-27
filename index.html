@@ -9,13 +9,13 @@
     </head>
 
     <body>
-    Coba Automation <br>
+    Hello world! <br>
     This is the current date and time, as computed by Python:
     <py-script>
-from selenium import webdriver
-
-browser = webdriver.Firefox()
-browser.get('http://selenium.dev/')
+from pyscript import display
+from datetime import datetime
+now = datetime.now()
+display(now.strftime("%m/%d/%Y, %H:%M:%S"))
     </py-script>
     </body>
 </html>
