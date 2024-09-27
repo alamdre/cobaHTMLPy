@@ -1,24 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>PyScript Hello World</title>
-    <link rel="stylesheet" href="https://pyscript.net/releases/2024.9.1/core.css" />
-    <script type="module" src="https://pyscript.net/releases/2024.9.1/core.js"></script>
-    </head>
 
-    <body>
-    Hello world! <br>
-    This is the current date and time, as computed by Python:
-    <py-script>
-    from pyscript import display
-    from datetime import datetime
-    now = datetime.now()
-    display(now.strftime("%m/%d/%Y, %H:%M:%S"))
-    print('Enter your name:')
-    x = input()
-    display('Hello, ' + x)
-    </py-script>
-    </body>
+<html>
+
+<head>
+  <!--<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />-->
+  <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+</head>
+
+<body>
+  <div>Type an sample input here</div>
+  <input type="text" id="test-input"/>
+  <button id="submit-button" type="submit" pys-onClick="my_function">OK</button>
+  <div id="test-output"></div>
+
+<py-script>
+from js import console
+
+def my_function(*args, **kwargs):
+
+    #print('args:', args)
+    #print('kwargs:', kwargs)
+
+    console.log(f'args: {args}')
+    console.log(f'kwargs: {kwargs}')
+    
+    text = Element('test-input').element.value
+
+    #print('text:', text)
+    console.log(f'text: {text}')
+
+    Element('test-output').element.innerText = text
+</py-script>
+
+  </body>
 </html>
